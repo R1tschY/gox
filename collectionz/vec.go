@@ -35,7 +35,7 @@ func (v Vec[V]) AppendSlice(vals []V) {
 }
 
 func (v Vec[V]) AppendSeq(seq iterz.Seq[V]) {
-	slices.AppendSeq(v.data, seq)
+	v.data = slices.AppendSeq(v.data, seq)
 }
 
 func (v Vec[V]) Len() int {
