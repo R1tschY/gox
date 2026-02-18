@@ -59,4 +59,4 @@ git push origin "$NEW_VERSION"
 # Trigger indexing on pkg.go.dev via proxy.golang.org
 echo "Triggering indexing on pkg.go.dev..."
 MODULE_NAME=$(go list -m)
-curl -s "https://proxy.golang.org/${MODULE_NAME}/@v/${NEW_VERSION}.info" > /dev/null
+GOPROXY=https://proxy.golang.org go mod download "${MODULE_NAME}@${NEW_VERSION}"
