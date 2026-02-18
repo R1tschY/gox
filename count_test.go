@@ -34,37 +34,37 @@ func TestCount(t *testing.T) {
 
 	t.Run("pos overflow +1", func(t *testing.T) {
 		assert.Panics(t, func() {
-			slices.Collect(Limit(Count(math.MaxInt, 1), 2))
+			_ = slices.Collect(Limit(Count(math.MaxInt, 1), 2))
 		})
 	})
 
 	t.Run("pos overflow +2", func(t *testing.T) {
 		assert.Panics(t, func() {
-			slices.Collect(Limit(Count(math.MaxInt, 2), 2))
+			_ = slices.Collect(Limit(Count(math.MaxInt, 2), 2))
 		})
 	})
 
 	t.Run("pos overflow +MaxInt", func(t *testing.T) {
 		assert.Panics(t, func() {
-			slices.Collect(Limit(Count(math.MaxInt, math.MaxInt), 2))
+			_ = slices.Collect(Limit(Count(math.MaxInt, math.MaxInt), 2))
 		})
 	})
 
 	t.Run("neg overflow -1", func(t *testing.T) {
 		assert.Panics(t, func() {
-			slices.Collect(Limit(Count(math.MinInt, -1), 2))
+			_ = slices.Collect(Limit(Count(math.MinInt, -1), 2))
 		})
 	})
 
 	t.Run("neg overflow -2", func(t *testing.T) {
 		assert.Panics(t, func() {
-			slices.Collect(Limit(Count(math.MinInt, -2), 2))
+			_ = slices.Collect(Limit(Count(math.MinInt, -2), 2))
 		})
 	})
 
 	t.Run("neg overflow -MaxInt", func(t *testing.T) {
 		assert.Panics(t, func() {
-			slices.Collect(Limit(Count(math.MinInt, math.MinInt), 2))
+			_ = slices.Collect(Limit(Count(math.MinInt, math.MinInt), 2))
 		})
 	})
 
