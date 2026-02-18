@@ -124,42 +124,56 @@ func chunkV3[V any](it Seq[V], n int) Seq[[]V] {
 	}
 }
 
+func chunkSeq(slice []byte) [][]byte {
+	return slices.Collect(Chunk(slices.Values(slice), 32))
+}
+
+func chunkSeqPlain(slice []byte) [][]byte {
+	return slices.Collect(chunkV2(slices.Values(slice), 32))
+}
+
+func chunkSeqAlloc(slice []byte) [][]byte {
+	return slices.Collect(chunkV3(slices.Values(slice), 32))
+}
+
 func BenchmarkChunk(b *testing.B) {
-	slice := make([]byte, 338)
+	slice := make([]byte, 320)
 
 	b.Run("slice builtin", func(b *testing.B) {
 		for b.Loop() {
-			slices.Collect(slices.Chunk(slice, 32))
+			_ = func() [][]byte {
+				return slices.Collect(slices.Chunk(slice, 32))
+			}()
 		}
 	})
 
 	b.Run("slice for", func(b *testing.B) {
 		for b.Loop() {
-			chunkSlice(slice, 32)
+			_ = chunkSlice(slice, 32)
 		}
 	})
 
 	b.Run("slice for alloc", func(b *testing.B) {
 		for b.Loop() {
-			chunkSliceV2(slice, 32)
+			_ = chunkSliceV2(slice, 32)
 		}
 	})
 
 	b.Run("seq", func(b *testing.B) {
 		for b.Loop() {
-			slices.Collect(Chunk(slices.Values(slice), 32))
+			_ = chunkSeq(slice)
 		}
 	})
 
 	b.Run("seq plain", func(b *testing.B) {
 		for b.Loop() {
-			slices.Collect(chunkV2(slices.Values(slice), 32))
+			_ = chunkSeqPlain(slice)
 		}
 	})
 
 	b.Run("seq alloc", func(b *testing.B) {
 		for b.Loop() {
-			slices.Collect(chunkV3(slices.Values(slice), 32))
+			_ = chunkSeqAlloc(slice)
 		}
 	})
 }
