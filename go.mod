@@ -1,7 +1,7 @@
 // Copyright (c) 2026 Richard Liebscher
 // SPDX-License-Identifier: MIT
 
-module github.com/R1tschy/iterz
+module github.com/R1tschy/gox
 
 go 1.25
 

@@ -3,24 +3,24 @@
 
 package ops
 
-import "github.com/R1tschy/iterz/internal"
+import "github.com/R1tschy/gox/typex"
 
-func Add[T internal.Numeric](lhs T, rhs T) T {
+func Add[T typex.Numeric](lhs T, rhs T) T {
 	return lhs + rhs
 }
 
-func Sub[T internal.Numeric](lhs T, rhs T) T {
+func Sub[T typex.Numeric](lhs T, rhs T) T {
 	return lhs - rhs
 }
 
-func Mul[T internal.Numeric](lhs T, rhs T) T {
+func Mul[T typex.Numeric](lhs T, rhs T) T {
 	return lhs * rhs
 }
 
-func Div[T internal.Numeric](lhs T, rhs T) T {
+func Div[T typex.Numeric](lhs T, rhs T) T {
 	return lhs / rhs
 }
 
-func Mod[T internal.Integer](lhs T, rhs T) T {
+func Mod[T typex.Integer](lhs T, rhs T) T {
 	return lhs % rhs
 }
