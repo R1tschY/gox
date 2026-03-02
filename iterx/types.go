@@ -30,3 +30,8 @@ type Pair[T, U any] struct {
 	Key   T
 	Value U
 }
+
+// NewPair creates a new pair from a key and a value
+func NewPair[K, V any](key K, value V) Pair[K, V] {
+	return Pair[K, V]{Key: key, Value: value}
+}

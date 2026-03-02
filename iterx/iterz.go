@@ -20,12 +20,3 @@ func Infinite() Seq0 {
 		}
 	}
 }
-
-type pair[K, V any] struct {
-	Key   K
-	Value V
-}
-
-func newPair[K, V any](key K, value V) pair[K, V] {
-	return pair[K, V]{Key: key, Value: value}
-}

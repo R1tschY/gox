@@ -34,12 +34,12 @@ func Cycle[T any](it Seq[T]) Seq[T] {
 // later iterations.
 func Cycle2[K any, V any](it Seq2[K, V]) Seq2[K, V] {
 	return func(yield func(K, V) bool) {
-		buf := make([]pair[K, V], 0, 16)
+		buf := make([]Pair[K, V], 0, 16)
 		for key, value := range it {
 			if !yield(key, value) {
 				break
 			}
-			buf = append(buf, newPair(key, value))
+			buf = append(buf, NewPair(key, value))
 		}
 
 		if len(buf) > 0 {
