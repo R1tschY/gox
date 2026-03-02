@@ -3,7 +3,11 @@
 
 package ops
 
-import "github.com/R1tschy/gox/typex"
+import (
+	"cmp"
+
+	"github.com/R1tschy/gox/typex"
+)
 
 func Add[T typex.Numeric](lhs T, rhs T) T {
 	return lhs + rhs
@@ -46,19 +50,19 @@ func Rshift[T typex.Integer, S typex.Integer](lhs T, rhs S) T {
 }
 
 func Lt[T typex.Ordered](lhs T, rhs T) bool {
-	return lhs < rhs
+	return cmp.Less(lhs, rhs)
 }
 
 func Le[T typex.Ordered](lhs T, rhs T) bool {
-	return lhs <= rhs
+	return cmp.Compare(lhs, rhs) <= 0
 }
 
 func Gt[T typex.Ordered](lhs T, rhs T) bool {
-	return lhs > rhs
+	return cmp.Compare(lhs, rhs) > 0
 }
 
 func Ge[T typex.Ordered](lhs T, rhs T) bool {
-	return lhs >= rhs
+	return cmp.Compare(lhs, rhs) >= 0
 }
 
 func Eq[T comparable](lhs T, rhs T) bool {
