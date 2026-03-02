@@ -4,9 +4,10 @@
 /*
 Package iterx provides the standard library missing functions for working with [iter.Seq] and [iter.Seq2].
 
-Inspired by [Python's itertools].
+Inspired by [Python's itertools] and [C++'s &lt;algorithm&gt;].
 
 [Python's itertools]: https://docs.python.org/3/library/itertools.html
+[C++'s &lt;algorithm&gt;]: https://cppreference.com/w/cpp/algorithm.html
 */
 package iterx
 

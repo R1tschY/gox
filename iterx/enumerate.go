@@ -12,7 +12,7 @@ func Enumerate[K typex.Integer, V any](it Seq[V], start K) Seq2[K, V] {
 			if !yield(i, value) {
 				break
 			}
-			if i+1 < i {
+			if i+1 < i { // TODO: will overflow also if this element is the last, what is okay
 				panic("integer overflow")
 			}
 			i++
