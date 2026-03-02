@@ -24,3 +24,9 @@ type Seq[V any] = func(yield func(V) bool)
 // Seq2 is a type alias representing [iter.Seq2] iterator function.
 // See [iter] package for details.
 type Seq2[K any, V any] = func(yield func(K, V) bool)
+
+// Pair is a type representing a pair of values.
+type Pair[T, U any] struct {
+	Key   T
+	Value U
+}
