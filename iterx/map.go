@@ -56,3 +56,10 @@ func MapToPairs[K any, V any](seq Seq2[K, V]) Seq[Pair[K, V]] {
 		}
 	})
 }
+
+// MapFromPairs converts a sequence of pairs to a sequence of key-value pairs.
+func MapFromPairs[K any, V any](seq Seq[Pair[K, V]]) Seq2[K, V] {
+	return MapTo2(seq, func(pair Pair[K, V]) (K, V) {
+		return pair.Key, pair.Value
+	})
+}
