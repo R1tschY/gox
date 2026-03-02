@@ -56,11 +56,12 @@ Inspired by [Python's itertools] and [C++'s &lt;algorithm&gt;].
 
 
 ## Combinatoric
-| Iterator       | Arguments   | Results                                                          | Example                            |
-|----------------|-------------|------------------------------------------------------------------|------------------------------------|
-| [Combinations] | p, r        | r-length sequences, in sorted order, no repeated elements        | `[1,2,3] 2 ➞ [1,2] [1,3] [2,3]`    |
-| [Permutations] | p, r        | r-length sequences, all possible orderings, no repeated elements | `[1,2,3] 2 ➞ [1,2] [1,3] ...`      |
-| [Product]      | p, q        | cartesian product                                                | `[1,2] [3,4] ➞ [1,3] [1,4] ...`    |
+| Iterator                      | Arguments | Results                                                          | Example                                   |
+|-------------------------------|-----------|------------------------------------------------------------------|-------------------------------------------|
+| [Combinations]                | p, r      | r-length sequences, in sorted order, no repeated elements        | `[1,2,3] 2 ➞ [1,2] [1,3] [2,3]`           |
+| [CombinationsWithReplacement] | p, r      | r-length sequences, in sorted order, with repeated elements      | `[1,2,3] 2 ➞ [1,1] [1,2] [1,3] [2,2] ...` |
+| [Permutations]                | p, r      | r-length sequences, all possible orderings, no repeated elements | `[1,2,3] 2 ➞ [1,2] [1,3] ...`             |
+| [Product]                     | p, q      | cartesian product                                                | `[1,2] [3,4] ➞ [1,3] [1,4] ...`           |
 
 
 [Accumulate]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#Accumulate
@@ -68,6 +69,7 @@ Inspired by [Python's itertools] and [C++'s &lt;algorithm&gt;].
 [ChainFrom]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#ChainFrom
 [Chunk]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#Chunk
 [Combinations]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#Combinations
+[CombinationsWithReplacement]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#CombinationsWithReplacement
 [Count]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#Count
 [Cycle]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#Cycle
 [DropWhile]: https://pkg.go.dev/github.com/R1tschy/gox/iterx#DropWhile
