@@ -26,3 +26,27 @@ func ChainFrom[V any](iterables Seq[Seq[V]]) Seq[V] {
 		}
 	}
 }
+
+func Chain2[K any, V any](iterables ...Seq2[K, V]) Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		for _, iterable := range iterables {
+			for key, val := range iterable {
+				if !yield(key, val) {
+					return
+				}
+			}
+		}
+	}
+}
+
+func ChainFrom2[K any, V any](iterables Seq[Seq2[K, V]]) Seq2[K, V] {
+	return func(yield func(K, V) bool) {
+		for iterable := range iterables {
+			for key, val := range iterable {
+				if !yield(key, val) {
+					return
+				}
+			}
+		}
+	}
+}
