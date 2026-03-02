@@ -3,6 +3,10 @@
 
 package typex
 
+type Ordered interface {
+	Integer | Float | ~string
+}
+
 type Numeric interface {
 	Integer | Float
 }
